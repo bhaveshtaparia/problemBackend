@@ -17,7 +17,7 @@ const register=async(req,res)=>{
             userId:user._id
         }
         
-        const token=jwt.sign(payload,process.env.SECRETKEY,{expiresIn:'1h'})
+        const token=jwt.sign(payload,process.env.SECRETKEY,{expiresIn:EXPIREC})
         
         const options={
             expires:new Date(Date.now()+process.env.EXPIREC*24*60*60*1000),
