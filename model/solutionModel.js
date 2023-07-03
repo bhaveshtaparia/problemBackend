@@ -1,18 +1,18 @@
 const mongoose =require('mongoose');
-const problemSchema=new mongoose.Schema({
-    id:{
+const solutionSchema=new mongoose.Schema({
+    userId:{
         type:mongoose.Schema.ObjectId,
         ref:"Registers",
+        required:true
+    },
+    problemId:{
+        type:mongoose.Schema.ObjectId,
+        ref:"problem",
         required:true
     },
     name:{
         type:String,
         required:true,
-    },
-
-    phoneNo:{
-type:Number,
-required:true
     },
     title:{
         type:String,
@@ -60,4 +60,4 @@ required:true
    
 })
 
-module.exports=new mongoose.model('problem',problemSchema);
+module.exports=new mongoose.model('solution',solutionSchema);

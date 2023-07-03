@@ -13,6 +13,7 @@ const History=require('./router/problemHistoryR');
 const Logout=require('./router/logoutR');
 const Comment=require('./router/commentR');
 const bodyParser=require('body-parser');
+const Solution=require('./router/allSolutionR')
 dotenv.config({path:'./config.env'});
 app.use(express.urlencoded({extended:false}))
 app.use(bodyParser.json());
@@ -32,6 +33,7 @@ app.use('/api/v1',Logout);
 app.use('/api/v1',History);
 app.use('/api/v1',AllProblem);
 app.use('/api/v1',Comment);
+app.use('/api/v1',Solution);
 app.listen(process.env.PORT,()=>{
     console.log(`http://localhost:${process.env.PORT}`)
     console.log(`server is working on ${process.env.PORT} `)
