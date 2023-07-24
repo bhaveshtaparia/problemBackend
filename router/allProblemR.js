@@ -5,7 +5,7 @@ const express=require('express');
 const allProblem=async(req,res)=>{
     try{
     
-            const problem= await Problem.find({});
+            const problem= await Problem.find({title:{ $regex: req.body.title, $options: 'i' }});
             res.status(201).json({
                 problem,
                 success:true,
@@ -21,7 +21,7 @@ res.status(404).json({
 }
 }
 const router=express.Router();
-router.route('/problem/allproblem').get(allProblem);
+router.route('/problem/allproblem').post(allProblem);
 
 
 // for upvoting 
