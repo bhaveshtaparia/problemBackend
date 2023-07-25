@@ -279,12 +279,17 @@ const solutionRank=async(req,res)=>{
         const sortedValues = Object.keys(map).sort((a, b) => map[a] - map[b]);
         let totalUser=sortedValues.length;
         let rank=totalUser;
+        a=true;
         for(let i=0;i<sortedValues.length;i++){
           if(sortedValues[i]==req.body.userId){
             // console.log(i);
             rank-=i;
+            a=false;
             break;
           }
+        }
+        if(a){
+            rank++;
         }
         res.status(200).json({
             rank,totalUser
